@@ -1,31 +1,36 @@
 import React, { useEffect, useState } from "react";
-
+import { BASE_URL } from "../constant/apiEndpoints";
 function View() {
   const [user, setUser] = useState();
-  useEffect(() => {
-    fetch("http://localhost:3001/getAllUsers")
+  const getUsers = () => {
+    fetch(`${BASE_URL}/getAllUsers`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
         setUser(result.results);
         console.log(result.results);
       });
+  };
+  useEffect(() => {
+    getUsers();
   }, []);
   const deleteUser = (id) => {
     let confirm = window.confirm("Are you sure want to delete this user?");
     if (confirm) {
-      fetch(`http://localhost:3001/delete/${id}`, {
+      fetch(`${BASE_URL}/delete/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
           alert(result.message);
+          getUsers();
         });
     }
   };
   return (
     <div>
+      
       <h2 className="text-center bg-dark text-light">Admin Dashboard</h2>
       <table className="table table-striped text-center">
         <thead>

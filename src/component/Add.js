@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { BASE_URL } from "../constant/apiEndpoints";
 function Add() {
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
   const [phone, setPhone] = useState("");
   const [hobby, setHobby] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpassword, setCpassword] = useState("");
 
   const formSumbit = (e) => {
     e.preventDefault();
@@ -18,7 +21,7 @@ function Add() {
       hobby.trim() !== "" &&
       email.trim() !== ""
     ) {
-      fetch("http://localhost:3001/post", {
+      fetch(`${BASE_URL}/post`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,9 +46,32 @@ function Add() {
     }
   };
   return (
-    <div className="container">
-      <h2 className="bg-success text-light text-center">Add a user</h2>
+    <div className="container w-50 mt-3">
       <form onSubmit={formSumbit}>
+        <input
+          className="form-control mt-2"
+          type="string"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="email"
+          required={true}
+        />
+        <input
+          className="form-control mt-2"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="password"
+          required={true}
+        />
+        <input
+          className="form-control mt-2"
+          type="password"
+          value={cpassword}
+          onChange={(e) => setCpassword(e.target.value)}
+          placeholder="enter password again"
+          required={true}
+        />
         <input
           className="form-control mt-2"
           type="string"
@@ -67,7 +93,6 @@ function Add() {
           onChange={(e) => setPhone(e.target.value)}
           placeholder="phone"
         />
-
         <input
           className="form-control mt-2"
           type="string"
@@ -75,16 +100,9 @@ function Add() {
           onChange={(e) => setHobby(e.target.value)}
           placeholder="hobby"
         />
-        <input
-          className="form-control mt-2"
-          type="string"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="email"
-        />
 
         <button
-          className="btn btn-primary text-light mt-2 ml-2"
+          className="w-100 btn btn-primary text-light mt-2 ml-2"
           type="submit"
         >
           Submit

@@ -6,29 +6,15 @@ import Add from "./component/Add";
 import Update from "./component/Update";
 import View from "./component/View";
 import Delete from "./component/Delete";
+import NavMenu from "./component/NavMenu";
+import PublicRoutes from "./Routes/publicRoutes";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <div className="container">
-          <ul>
-            <li>
-              <Link to={"/add"}>Add</Link>
-            </li>
-            <li>
-              <Link to={"/view"}>View</Link>
-            </li>
-          </ul>
-        </div>
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/view" element={<View />} />
-          <Route path="/add" element={<Add />} />
-          <Route path="/update" element={<Update />} />
-          <Route path="/delete" element={<Delete />} />
-        </Routes>
-      </BrowserRouter>
+      <PublicRoutes>
+        <NavMenu />
+        <Home/>
+      </PublicRoutes>
     </>
   );
 }
