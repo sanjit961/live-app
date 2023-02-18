@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BASE_URL } from "../constant/apiEndpoints";
+import Footer from "./Footer";
 function Add() {
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
@@ -46,69 +47,71 @@ function Add() {
     }
   };
   return (
-    <div className="container w-50 mt-3">
-      <form onSubmit={formSumbit}>
-        <input
-          className="form-control mt-2"
-          type="string"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="email"
-          required={true}
-        />
-        <input
-          className="form-control mt-2"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="password"
-          required={true}
-        />
-        <input
-          className="form-control mt-2"
-          type="password"
-          value={cpassword}
-          onChange={(e) => setCpassword(e.target.value)}
-          placeholder="enter password again"
-          required={true}
-        />
-        <input
-          className="form-control mt-2"
-          type="string"
-          placeholder="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          className="form-control mt-2"
-          type="string"
-          value={username}
-          onChange={(e) => setUserName(e.target.value)}
-          placeholder="username"
-        />
-        <input
-          className="form-control mt-2"
-          type="string"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder="phone"
-        />
-        <input
-          className="form-control mt-2"
-          type="string"
-          value={hobby}
-          onChange={(e) => setHobby(e.target.value)}
-          placeholder="hobby"
-        />
+    <>
+      <div className="container w-50  mt-3" style={{ height: "90vh" }}>
+        <form onSubmit={formSumbit}>
+          <input
+            className="form-control mt-2"
+            type="string"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="email"
+            required={true}
+          />
+          <input
+            className="form-control mt-2"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="password"
+            required={true}
+          />
+          <input
+            className="form-control mt-2"
+            type="password"
+            value={cpassword}
+            onChange={(e) => setCpassword(e.target.value)}
+            placeholder="enter password again"
+            required={true}
+          />
+          <input
+            className="form-control mt-2"
+            type="string"
+            placeholder="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            className="form-control mt-2"
+            type="string"
+            value={username}
+            onChange={(e) => setUserName(e.target.value)}
+            placeholder="username"
+          />
+          <input
+            className="form-control mt-2"
+            type="string"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="phone"
+          />
+          <input
+            className="form-control mt-2"
+            type="string"
+            value={hobby}
+            onChange={(e) => setHobby(e.target.value)}
+            placeholder="hobby"
+          />
 
-        <button
-          className="w-100 btn btn-primary text-light mt-2 ml-2"
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+          <button
+            className="w-100 btn btn-primary text-light mt-2 ml-2"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 
