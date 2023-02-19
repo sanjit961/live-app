@@ -1,29 +1,42 @@
 import React from "react";
-import Footer from "./Footer";
-import NavMenu from "./NavMenu";
-
+import styled from "styled-components";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+const StyledButton = styled(Button)`
+  margin-top: 10px;
+`;
+const StyledForm = styled(Form)``;
+const StyledInput = styled.input`
+  margin-top: 10px;
+`;
+const StyledContainer = styled(Container)`
+  margin-top: 20px;
+  height: 100vh;
+  color: white;
+  width: 40%;
+`;
 function Login() {
   return (
     <>
-      <div style={{ height: "100vh" }}>
-        <div className="text-light w-50 mx-auto" style={{ marginTop: "10vh" }}>
-          <form>
-            <input
-              type="text"
-              className="form-control mt-2"
-              placeholder="email or username"
-            />
-            <input
-              type="password"
-              className="form-control mt-3"
-              placeholder="password"
-            />
-            <button className="btn btn-primary mt-3 w-100" type="submit">
-              Login
-            </button>
-          </form>
-        </div>
-      </div>
+      <StyledContainer>
+        <h5>Login</h5>
+        <StyledForm>
+          <StyledInput
+            type="text"
+            className="form-control"
+            placeholder="email or username"
+          />
+          <StyledInput
+            type="password"
+            className="form-control"
+            placeholder="password"
+          />
+          <StyledButton variant="primary" type="submit">
+            Login
+          </StyledButton>
+        </StyledForm>
+      </StyledContainer>
     </>
   );
 }
